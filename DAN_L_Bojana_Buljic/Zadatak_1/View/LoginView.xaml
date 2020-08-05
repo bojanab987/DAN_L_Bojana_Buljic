@@ -26,15 +26,13 @@
                      Background="DarkSlateGray"
                      Foreground="White"
                      FontSize="18"
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                     TextChanged="txtChanged" />
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Password"
                    Foreground="White" />
             <PasswordBox Name="passwordBox"
                          Background="DarkSlateGray"
                          Foreground="White"
-                         FontSize="18"
-                         PasswordBox.PasswordChanged="txtChanged" />
+                         FontSize="18" />
             <Button Command="{Binding LogIn}"
                     Width="90"
                     Height="35"
