@@ -270,7 +270,49 @@ namespace Zadatak_1.ViewModel
         {
             return true;
         }
-        #endregion    
-              
+
+        /// <summary>
+        /// Command that logs out the user
+        /// </summary>
+        private ICommand logOut;
+        public ICommand LogOut
+        {
+            get
+            {
+                if (logOut == null)
+                {
+                    logOut = new RelayCommand(param => LogOutExecute(), param => CanLogOutExecute());
+                }
+                return logOut;
+            }
+        }
+
+        /// <summary>
+        /// Executes the logOut command
+        /// </summary>
+        private void LogOutExecute()
+        {
+            try
+            {
+                LoginView login = new LoginView();
+                userView.Close();
+                login.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Checks if its possible to logOut
+        /// </summary>
+        /// <returns>true</returns>
+        private bool CanLogOutExecute()
+        {
+            return true;
+        }
+        #endregion
+
     }
 }

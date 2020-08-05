@@ -13,6 +13,7 @@ namespace Zadatak_1.ViewModel
         AddView songView;
         Service service = new Service();
 
+        #region Properties
         private vwUser user;
         public vwUser User
         {
@@ -40,15 +41,21 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("Song");
             }
         }
+        #endregion
 
+        #region Constructor
         public AddViewModel(AddView songView, vwUser user)
         {
             this.songView = songView;
             User = user;
             Song = new vwSong();
         }
+        #endregion
 
         #region Commands
+        /// <summary>
+        /// Command for saving song
+        /// </summary>
         private ICommand save;
         public ICommand Save
         {
@@ -62,6 +69,9 @@ namespace Zadatak_1.ViewModel
             }
         }
 
+        /// <summary>
+        /// Method to execute save command and saves added song
+        /// </summary>
         public void SaveExecute()
         {
             if (String.IsNullOrEmpty(Song.SongName) || String.IsNullOrEmpty(Song.SongAuthor) || String.IsNullOrEmpty(Song.SongDuration.ToString())
@@ -97,6 +107,10 @@ namespace Zadatak_1.ViewModel
             
         }
 
+        /// <summary>
+        /// Method to check if save execution is possible
+        /// </summary>
+        /// <returns></returns>
         public bool CanSaveExecute()
         {
             if (String.IsNullOrEmpty(Song.SongName) || String.IsNullOrEmpty(Song.SongAuthor) || String.IsNullOrEmpty(Song.SongDuration.ToString())
@@ -110,7 +124,9 @@ namespace Zadatak_1.ViewModel
             }
         }
 
-
+        /// <summary>
+        /// Cancel command
+        /// </summary>
         private ICommand cancel;
         public ICommand Cancel
         {
@@ -124,6 +140,9 @@ namespace Zadatak_1.ViewModel
             }
         }
 
+        /// <summary>
+        /// Method executing cancel command and not saving song 
+        /// </summary>
         public void CancelExecute()
         {
             try
@@ -140,6 +159,10 @@ namespace Zadatak_1.ViewModel
             }
         }
 
+        /// <summary>
+        /// Method to check if cancel is possible to be executed
+        /// </summary>
+        /// <returns>true</returns>
         public bool CanCancelExecute()
         {
             return true;
