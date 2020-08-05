@@ -312,6 +312,47 @@ namespace Zadatak_1.ViewModel
         {
             return true;
         }
+
+
+        /// <summary>
+        /// Command for start playing the selected song
+        /// </summary>
+        private ICommand playSong;
+        public ICommand PlaySong
+        {
+            get
+            {
+                if (playSong == null)
+                {
+                    playSong = new RelayCommand(param => PlaySongExecute(), param => CanPlaySongExecute());
+                }
+                return playSong;
+            }
+        }
+
+        /// <summary>
+        /// Executes the play song command
+        /// </summary>
+        private void PlaySongExecute()
+        {
+            try
+            {
+                MessageBox.Show("Song is playing......");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Checks if its possible to logOut
+        /// </summary>
+        /// <returns>true</returns>
+        private bool CanPlaySongExecute()
+        {
+            return true;
+        }
         #endregion
 
     }
