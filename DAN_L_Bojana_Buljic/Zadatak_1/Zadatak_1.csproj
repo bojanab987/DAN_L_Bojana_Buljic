@@ -99,6 +99,7 @@
       <DependentUpon>AudioPlayerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\Service.cs" />
+    <Compile Include="Validations\SongValidation.cs" />
     <Compile Include="Validations\ValidationClass.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AudioPlayerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblPlayedSong">
+    <Key>
+      <PropertyRef Name="PlayedSongId" />
+    </Key>
+    <Property Name="PlayedSongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SongId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblSong" Relationship="Self.FK__tblPlayed__SongI__3D5E1FD2" FromRole="tblPlayedSong" ToRole="tblSong" />
+  </EntityType>
+  <EntityType Name="tblSong">
+    <Key>
+      <PropertyRef Name="SongId" />
+    </Key>
+    <Property Name="SongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SongName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongAuthor" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongDuration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblPlayedSongs" Relationship="Self.FK__tblPlayed__SongI__3D5E1FD2" FromRole="tblSong" ToRole="tblPlayedSong" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblSong__UserId__3A81B327" FromRole="tblSong" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblSongs" Relationship="Self.FK__tblSong__UserId__3A81B327" FromRole="tblUser" ToRole="tblSong" />
+  </EntityType>
+  <EntityType Name="vwPlayedSong">
+    <Key>
+      <PropertyRef Name="SongId" />
+      <PropertyRef Name="SongName" />
+      <PropertyRef Name="SongAuthor" />
+      <PropertyRef Name="SongDuration" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PlayedSongId" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="SongId" Type="Int32" Nullable="false" />
+    <Property Name="SongName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongAuthor" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongDuration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="PlayedSongId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwSong">
+    <Key>
+      <PropertyRef Name="SongId" />
+      <PropertyRef Name="SongName" />
+      <PropertyRef Name="SongAuthor" />
+      <PropertyRef Name="SongDuration" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="SongId" Type="Int32" Nullable="false" />
+    <Property Name="SongName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongAuthor" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SongDuration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblPlayed__SongI__3D5E1FD2">
+    <End Role="tblSong" Type="Self.tblSong" Multiplicity="1" />
+    <End Role="tblPlayedSong" Type="Self.tblPlayedSong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSong">
+        <PropertyRef Name="SongId" />
+      </Principal>
+      <Dependent Role="tblPlayedSong">
+        <PropertyRef Name="SongId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSong__UserId__3A81B327">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblSong" Type="Self.tblSong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tblSong">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AudioPlayerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblPlayedSongs" EntityType="Self.tblPlayedSong" />
+    <EntitySet Name="tblSongs" EntityType="Self.tblSong" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <EntitySet Name="vwPlayedSongs" EntityType="Self.vwPlayedSong" />
+    <EntitySet Name="vwSongs" EntityType="Self.vwSong" />
+    <EntitySet Name="vwUsers" EntityType="Self.vwUser" />
+    <AssociationSet Name="FK__tblPlayed__SongI__3D5E1FD2" Association="Self.FK__tblPlayed__SongI__3D5E1FD2">
+      <End Role="tblSong" EntitySet="tblSongs" />
+      <End Role="tblPlayedSong" EntitySet="tblPlayedSongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSong__UserId__3A81B327" Association="Self.FK__tblSong__UserId__3A81B327">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblSong" EntitySet="tblSongs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

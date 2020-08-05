@@ -52,7 +52,7 @@ namespace Zadatak_1.Validations
             {
                 return false;
             }
+        }        
 
-        }
     }
 }
