@@ -80,6 +80,7 @@ namespace Zadatak_1.ViewModel
             {
                 User = service.GetUserByUsername(Username);
                 UserView userView = new UserView(User);
+                login.Close();
                 userView.ShowDialog();
             }
             else if (val.IsUniqueUsername(Username) == true)

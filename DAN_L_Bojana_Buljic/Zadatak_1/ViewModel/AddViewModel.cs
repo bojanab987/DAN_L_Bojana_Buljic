@@ -64,27 +64,35 @@ namespace Zadatak_1.ViewModel
 
         public void SaveExecute()
         {
-            try
+            if (String.IsNullOrEmpty(Song.SongName) || String.IsNullOrEmpty(Song.SongAuthor) || String.IsNullOrEmpty(Song.SongDuration.ToString())
+               || Song.SongDuration.ToString() == "00:00:00")
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to save this song?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                MessageBox.Show("Please fill all fields to save song.", "Notification");
+            }
+            else
+            {
+                try
                 {
-                    bool isAdded = service.AddSong(User, Song);
-                    if (isAdded == true)
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to save this song?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
                     {
-                        MessageBox.Show("Song is added.", "Notification", MessageBoxButton.OK);
-                        songView.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Song cannot be added.", "Notification", MessageBoxButton.OK);
-                        songView.Close();
+                        bool isAdded = service.AddSong(User, Song);
+                        if (isAdded == true)
+                        {
+                            MessageBox.Show("Song is added.", "Notification", MessageBoxButton.OK);
+                            songView.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Song cannot be added.", "Notification", MessageBoxButton.OK);
+                            songView.Close();
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             
         }
@@ -93,8 +101,7 @@ namespace Zadatak_1.ViewModel
         {
             if (String.IsNullOrEmpty(Song.SongName) || String.IsNullOrEmpty(Song.SongAuthor) || String.IsNullOrEmpty(Song.SongDuration.ToString())
                 || Song.SongDuration.ToString() == "00:00:00")
-            {
-                MessageBox.Show("Please fill all fields to save song.", "Notification");
+            {                
                 return false;
             }
             else

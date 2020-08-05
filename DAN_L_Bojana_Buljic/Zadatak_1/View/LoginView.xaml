@@ -23,14 +23,14 @@
             <Label Content="Username"
                    Foreground="White" />
             <TextBox Name="txtUsername"
-                     Background="DarkSlateGray"
+                     Background="DimGray"
                      Foreground="White"
                      FontSize="18"
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Password"
                    Foreground="White" />
             <PasswordBox Name="passwordBox"
-                         Background="DarkSlateGray"
+                         Background="DimGray"
                          Foreground="White"
                          FontSize="18" />
             <Button Command="{Binding LogIn}"
@@ -39,8 +39,7 @@
                     CommandParameter="{Binding ElementName=passwordBox}"
                     Content="LogIn"
                     Margin="60 40"
-                    Background="DarkSlateGray"
-                    Foreground="White"
+                    Background="DimGray"                    
                     FontSize="18"
                     HorizontalAlignment="Left" />         
         </StackPanel>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AudioPlayerModelStoreContainer" CdmEntityContainer="AudioPlayerEntities">
+    <EntitySetMapping Name="tblPlayedSongs">
+      <EntityTypeMapping TypeName="AudioPlayerModel.tblPlayedSong">
+        <MappingFragment StoreEntitySet="tblPlayedSong">
+          <ScalarProperty Name="PlayedSongId" ColumnName="PlayedSongId" />
+          <ScalarProperty Name="SongId" ColumnName="SongId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSongs">
+      <EntityTypeMapping TypeName="AudioPlayerModel.tblSong">
+        <MappingFragment StoreEntitySet="tblSong">
+          <ScalarProperty Name="SongId" ColumnName="SongId" />
+          <ScalarProperty Name="SongName" ColumnName="SongName" />
+          <ScalarProperty Name="SongAuthor" ColumnName="SongAuthor" />
+          <ScalarProperty Name="SongDuration" ColumnName="SongDuration" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="AudioPlayerModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPlayedSongs">
+      <EntityTypeMapping TypeName="AudioPlayerModel.vwPlayedSong">
+        <MappingFragment StoreEntitySet="vwPlayedSong">
+          <ScalarProperty Name="SongId" ColumnName="SongId" />
+          <ScalarProperty Name="SongName" ColumnName="SongName" />
+          <ScalarProperty Name="SongAuthor" ColumnName="SongAuthor" />
+          <ScalarProperty Name="SongDuration" ColumnName="SongDuration" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PlayedSongId" ColumnName="PlayedSongId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSongs">
+      <EntityTypeMapping TypeName="AudioPlayerModel.vwSong">
+        <MappingFragment StoreEntitySet="vwSong">
+          <ScalarProperty Name="SongId" ColumnName="SongId" />
+          <ScalarProperty Name="SongName" ColumnName="SongName" />
+          <ScalarProperty Name="SongAuthor" ColumnName="SongAuthor" />
+          <ScalarProperty Name="SongDuration" ColumnName="SongDuration" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwUsers">
+      <EntityTypeMapping TypeName="AudioPlayerModel.vwUser">
+        <MappingFragment StoreEntitySet="vwUser">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
