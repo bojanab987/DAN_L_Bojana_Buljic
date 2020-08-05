@@ -1,8 +1,0 @@
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\Zadatak_1.csprojAssemblyReference.cache
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\MainWindow.g.cs
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\View\LoginView.g.cs
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\View\UserView.g.cs
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\App.g.cs
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\Zadatak_1_Content.g.cs
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\Zadatak_1_MarkupCompile.cache
-C:\Users\panonit\source\repos\DAN_L_Bojana_Buljic\DAN_L_Bojana_Buljic\Zadatak_1\obj\Debug\Zadatak_1_MarkupCompile.lref

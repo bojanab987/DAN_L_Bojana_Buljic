@@ -44,8 +44,7 @@
                     Background="DarkSlateGray"
                     Foreground="White"
                     FontSize="18"
-                    HorizontalAlignment="Left" />          
-            
+                    HorizontalAlignment="Left" />         
         </StackPanel>
     </Border>
 </Window>
