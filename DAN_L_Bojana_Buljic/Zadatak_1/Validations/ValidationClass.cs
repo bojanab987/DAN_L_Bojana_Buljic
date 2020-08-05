@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Zadatak_1.Model;
 using Zadatak_1.Services;
@@ -31,35 +32,27 @@ namespace Zadatak_1.Validations
         /// <summary>
         /// Checks if the password is correct
         /// </summary>
-        /// <param name="password">the password we are checking</param>       
-        public string PasswordChecker(string password)
+        /// <param name="password">the password we are checking</param>  
+        /// <returns>true if correct password, false if not</returns>
+        public bool PasswordChecker(string password)
         {
-            int upperCaseChars = 0;
-
-            //check if password lenght is minimum 6 characters
-            if (password == null || !(password.Length < 6))
+            if (password.Length >= 6)
             {
-                return null;
-            }
-
-            //check if password contains 2 uppercase characters
-            for (int i = 0; i < password.Length; i++)
-            {
-                if (char.IsUpper(password[i]))
+                var list = password.Where(Char.IsUpper).ToList();
+                if (list.Count >= 2)
                 {
-                    upperCaseChars++;
-                    if (upperCaseChars == 2)
-                    {
-                        break;
-                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-
-            if (upperCaseChars < 2)
+            else
             {
-                return null;
+                return false;
             }
-            return password;
+
         }
     }
 }

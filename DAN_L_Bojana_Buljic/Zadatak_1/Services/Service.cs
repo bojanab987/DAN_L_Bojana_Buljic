@@ -8,6 +8,7 @@ namespace Zadatak_1.Services
 {
     class Service
     {
+        #region User service methods
         /// <summary>
         /// Gets all users from database
         /// </summary>
@@ -29,6 +30,57 @@ namespace Zadatak_1.Services
                 return null;
             }
         }
+
+        /// <summary>
+        /// Gets user by forwarded username.
+        /// </summary>
+        /// <param name="username">User's username</param>        
+        /// <returns>User.</returns>
+        public vwUser GetUserByUsername(string username)
+        {
+            try
+            {
+                using (AudioPlayerEntities context = new AudioPlayerEntities())
+                {
+                    return context.vwUsers.Where(x => x.Username == username).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Adds the user
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>true for created user, false if not</returns>
+        public bool AddUser(string username, string password)
+        {
+            try
+            {
+                using (AudioPlayerEntities context = new AudioPlayerEntities())
+                {
+                    tblUser user = new tblUser
+                    {
+                        Password = password,
+                        Username = username
+                    };
+                    context.tblUsers.Add(user);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
+        #endregion
 
         /// <summary>
         /// Gets all songs from database
@@ -73,6 +125,8 @@ namespace Zadatak_1.Services
                 return null;
             }
         }
+
+        
 
 
     }
