@@ -1,1 +1,2 @@
-# DAN_L_Bojana_Buljic
+WPF application - audio player simulation
+MVVM pattern
